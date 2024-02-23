@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crud</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <div class="crud">
+    <div>
+      <input type="text " id="title" name="title" class="title" placeholder=" Title">
+      <div class="total">
+        <input type="number" onkeyup="yahya()" name="price" id="price" class="price" placeholder=" price">
+        <input type="number" onkeyup="yahya()" name="texas" id="texas" class="texas" placeholder=" texas">
+        <input type="number" onkeyup="yahya()" name="ads" id="ads" class="ads" placeholder=" ads">
+        <input type="number" onkeyup="yahya()" name="discount" id="discount" class="discount" placeholder=" discount">
+        <h5 id="totalPrice">
+
+        </h5>
+      </div>
+      <input type="text" id="categoery" class="Categoery" placeholder=" Categoery">
+      <input type="text" id="count" class="count" placeholder=" Count">
+      <button class="btn" id="create" type="submit"> Create </button>
+      <input type="search" name="search" id="search" placeholder=" Search">
+      <div class="search">
+        <button id="SearchByTitle">Search By Title</button>
+        <button id="SearchByCategoery">Search By Categoery</button>
+      </div>
+      <div>
+        <button onclick="DeleteallFunc()">Delete All <span id="counter"></span></button>
+      </div>
+      <table id="mytable" border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Texas</th>
+            <th>Ads</th>
+            <th>discount</th>
+            <th>total</th>
+            <th>Categoery</th>
+            <th>Count</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="color">
+    <ul class="change-color" id="element">
+      <li data-color="red"></li>
+      <li data-color="orange"></li>
+      <li data-color="aqua"></li>
+      <li data-color="gold"></li>
+    </ul>
+    <h1 id="change">Yahyaa</h1>
+
+  </div>
+  <div id="clock"></div>
+
+
+  <script src="main.js"></script>
+</body>
+
+</html>
