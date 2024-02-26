@@ -131,174 +131,85 @@ function DeleteallFunc() {
 }
 
 
-
-let SearchByTitle = document.getElementById("SearchByTitle")
-
-
-SearchByTitle.addEventListener("click", function (e) {
-
-    let searchBar = document.getElementById("search");
-
-
-    let searchvalue = DataPro.filter((ele) => {
-        return ele.title === searchBar.value;
-    })
-
-    if (searchvalue.length > 0) {
-        let table
-        for (let i = 0; i < searchvalue.length; i++) {
-            {
-                table += `
-            <tr>
-            <td>${[i + 1]}</td>
-            <td>${searchvalue[i].title}</td>
-            <td>${searchvalue[i].price}</td>
-            <td>${searchvalue[i].texas}</td>
-            <td>${searchvalue[i].ads}</td>
-            <td>${searchvalue[i].discount}</td>
-            <td>${searchvalue[i].totalPrice}</td>
-            <td>${searchvalue[i].categoery}</td>
-            <td>${searchvalue[i].count}</td>
-            <td ><button id="update" onclick="UpdateData(${i})">update</button></td>
-            <td ><button id="delete" onclick="deletedata(${i})">Delete</button></td>
-            </tr>
-            
-            `
-
-            }
-
-        }
-        document.getElementById('tbody').innerHTML = table;
-
+let searchmood = 'title';
+function Searchmood(id) {
+    let search = document.getElementById("search")
+    if (id == "SearchByTitle") {
+        searchmood = 'title'
+        search.placeholder = "Search by title..."
     } else {
-        let table;
-        for (let i = 0; i < DataPro.length; i++) {
-            {
-                table += `
-            <tr>
-            <td>${[i + 1]}</td>
-            <td>${DataPro[i].title}</td>
-            <td>${DataPro[i].price}</td>
-            <td>${DataPro[i].texas}</td>
-            <td>${DataPro[i].ads}</td>
-            <td>${DataPro[i].discount}</td>
-            <td>${DataPro[i].totalPrice}</td>
-            <td>${DataPro[i].categoery}</td>
-            <td>${DataPro[i].count}</td>
-            <td ><button id="update" onclick="UpdateData(${i})" >update</button></td>
-            <td ><button id="delete" onclick="deletedata(${i})">Delete</button></td>
-            </tr>
-            
-            `
-            }
-
-        }
-
-        document.getElementById('tbody').innerHTML = table;
+        searchmood = 'categoery'
+        search.placeholder = "Search by Categoery..."
     }
-
-    console.log(searchvalue);
-    console.log(DataPro);
-});
-
-let SearchByCategoery = document.getElementById("SearchByCategoery");
-
-
-SearchByCategoery.addEventListener("click", function (e) {
-    let searchBar = document.getElementById("search");
-
-
-    let searchvalue = DataPro.filter((ele) => {
-        return ele.categoery === searchBar.value;
-    })
-
-
-    if (searchvalue.length > 0) {
-        let table
-        for (let i = 0; i < searchvalue.length; i++) {
-            {
-                table += `
-            <tr>
-            <td>${[i + 1]}</td>
-            <td>${searchvalue[i].title}</td>
-            <td>${searchvalue[i].price}</td>
-            <td>${searchvalue[i].texas}</td>
-            <td>${searchvalue[i].ads}</td>
-            <td>${searchvalue[i].discount}</td>
-            <td>${searchvalue[i].totalPrice}</td>
-            <td>${searchvalue[i].categoery}</td>
-            <td>${searchvalue[i].count}</td>
-            <td ><button id="update" onclick="UpdateData(${i})" >update</button></td>
-            <td ><button id="delete" onclick="deletedata(${i})">Delete</button></td>
-            </tr>
-            
-            `
-            }
-
-        }
-        document.getElementById('tbody').innerHTML = table;
-
-    } else {
-        let table
-        for (let i = 0; i < DataPro.length; i++) {
-            {
-                table += `
-            <tr>
-            <td>${[i + 1]}</td>
-            <td>${DataPro[i].title}</td>
-            <td>${DataPro[i].price}</td>
-            <td>${DataPro[i].texas}</td>
-            <td>${DataPro[i].ads}</td>
-            <td>${DataPro[i].discount}</td>
-            <td>${DataPro[i].totalPrice}</td>
-            <td>${DataPro[i].categoery}</td>
-            <td>${DataPro[i].count}</td>
-            <td ><button id="update" onclick="UpdateData(${i})" >update</button></td>
-            <td ><button id="delete" onclick="deletedata(${i})">Delete</button></td>
-            </tr>
-            
-            `
-            }
-
-        }
-
-        document.getElementById('tbody').innerHTML = table;
-    }
-
-    console.log(searchvalue);
-    console.log(DataPro);
-});
-
-let searchBar = document.getElementById("search")
-searchBar.oninput = function () {
-    if (searchBar.value == '') {
-        let table
-        for (let i = 0; i < DataPro.length; i++) {
-            {
-                table += `
-            <tr>
-            <td>${[i + 1]}</td>
-            <td>${DataPro[i].title}</td>
-            <td>${DataPro[i].price}</td>
-            <td>${DataPro[i].texas}</td>
-            <td>${DataPro[i].ads}</td>
-            <td>${DataPro[i].discount}</td>
-            <td>${DataPro[i].totalPrice}</td>
-            <td>${DataPro[i].categoery}</td>
-            <td>${DataPro[i].count}</td>
-            <td ><button id="update" onclick="UpdateData(${i})" >update</button></td>
-            <td ><button id="delete" onclick="deletedata(${i})">Delete</button></td>
-            </tr>
-            
-            `
-            }
-
-        }
-
-        document.getElementById('tbody').innerHTML = table;
-    }
+    search.focus()
 }
 
+
+
+function SearchByTitle(value) {
+    let table;
+    if (searchmood == 'title') {
+
+        for (let i = 0; i < DataPro.length; i++) {
+            if (DataPro[i].title.includes(value.toLowerCase())) {
+                table += `
+                             <tr>
+                     <td>${[i + 1]}</td>
+                     <td>${DataPro[i].title}</td>
+                     <td>${DataPro[i].price}</td>
+                     <td>${DataPro[i].texas}</td>
+                     <td>${DataPro[i].ads}</td>
+                     <td>${DataPro[i].discount}</td>
+                     <td>${DataPro[i].totalPrice}</td>
+                     <td>${DataPro[i].categoery}</td>
+                     <td>${DataPro[i].count}</td>
+                     <td ><button id="update" onclick="UpdateData(${i})" >update</button></td>
+                     <td ><button id="delete" onclick="deletedata(${i})">Delete</button></td>
+                     </tr>
+
+                     `
+                console.log('a7a')
+            }
+
+
+
+
+        }
+
+    }
+    else {
+        for (let i = 0; i < DataPro.length; i++) {
+            if (DataPro[i].categoery.includes(value.toLowerCase())) {
+                table += `
+                             <tr>
+                     <td>${[i + 1]}</td>
+                     <td>${DataPro[i].title}</td>
+                     <td>${DataPro[i].price}</td>
+                     <td>${DataPro[i].texas}</td>
+                     <td>${DataPro[i].ads}</td>
+                     <td>${DataPro[i].discount}</td>
+                     <td>${DataPro[i].totalPrice}</td>
+                     <td>${DataPro[i].categoery}</td>
+                     <td>${DataPro[i].count}</td>
+                     <td ><button id="update" onclick="UpdateData(${i})" >update</button></td>
+                     <td ><button id="delete" onclick="deletedata(${i})">Delete</button></td>
+                     </tr>
+
+                     `
+                console.log('a7a')
+            }
+
+
+
+
+        }
+    }
+
+
+
+    document.getElementById('tbody').innerHTML = table;
+
+}
 function UpdateData(i) {
     title.value = DataPro[i].title;
     price.value = DataPro[i].price;
