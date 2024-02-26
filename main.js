@@ -35,13 +35,13 @@ if (localStorage.getItem("product") === null) {
 create.addEventListener("click", function (e) {
     e.preventDefault()
     let NewPro = {
-        title: title.value,
+        title: title.value.toLowerCase(),
         price: price.value,
         texas: texas.value,
         ads: ads.value,
         discount: discount.value,
         totalPrice: totalPrice.innerHTML,
-        categoery: categoery.value,
+        categoery: categoery.value.toLowerCase(),
         count: count.value,
     }
     if (mood === 'create') {
