@@ -142,6 +142,8 @@ function Searchmood(id) {
         search.placeholder = "Search by Categoery..."
     }
     search.focus()
+     search.value = '';
+    ShowData();
 }
 
 
