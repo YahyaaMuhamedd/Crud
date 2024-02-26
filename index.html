@@ -22,13 +22,13 @@
 
         </h5>
       </div>
-      <input type="text" id="categoery" class="Categoery" placeholder=" Categoery">
+       <input type="text" id="categoery" class="Categoery" placeholder=" Categoery">
       <input type="text" id="count" class="count" placeholder=" Count">
       <button class="btn" id="create" type="submit"> Create </button>
-      <input type="search" name="search" id="search" placeholder=" Search">
+      <input type="search" onkeyup="SearchByTitle(this.value)" name="search" id="search" placeholder=" Search">
       <div class="search">
-        <button id="SearchByTitle">Search By Title</button>
-        <button id="SearchByCategoery">Search By Categoery</button>
+        <button id="SearchByTitle" onclick="Searchmood(this.id)">Search By Title</button>
+        <button id="SearchByCategoery" onclick="Searchmood(this.id)">Search By Categoery</button>
       </div>
       <div>
         <button onclick="DeleteallFunc()">Delete All <span id="counter"></span></button>
