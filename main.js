@@ -82,7 +82,7 @@ function ClearData() {
 function ShowData() {
 
     yahya()
-    let table;
+    let table = '';
     for (let i = 0; i < DataPro.length; i++) {
         {
 
